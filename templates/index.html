@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
+
+</head>
+
+<body>
+    <section id="container">
+        <div>
+        <h1>Open Weather Flask</h1>
+        </div>
+        
+        <form action="" method="POST">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" />
+            <input type="submit" value="Submit" />
+        </form>
+
+        {% if weather %}
+        <section id="container_weather">
+            <div>
+
+                <div class="field">
+                    <div class="column">  
+                        <span>Country: {{ weather.country }}</span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="column">  
+                        <span>City: {{ weather.city }}</span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="column">  
+                        <span>Humidity: {{ weather.humidity }}</span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="column">  
+                        <span>Description: {{ weather.description }}</span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="column">  
+                    <span>Min: {{ weather.temp_min }}</span>
+                    <span>Max: {{ weather.temp_max }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </section>
+</body>
+
+</html>

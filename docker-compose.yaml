@@ -1,0 +1,21 @@
+services:
+  server:
+    env_file: ".env"
+    build: ./
+    entrypoint:
+      - flask
+      - run
+      - --host=0.0.0.0
+    ports: ["5000:5000"]
+    volumes: ["./:/app"]
+    networks:
+      network:
+        ipv4_address: 10.5.0.4
+
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
